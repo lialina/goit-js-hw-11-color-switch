@@ -41,17 +41,17 @@ const timer = {
         this.isActive = true;
 
         this.intervalId = setInterval(() => {
-            changeBodyBackgroundColor();
+            this.changeBodyBackgroundColor();
         }, 1000);
 
-        activateDisabledAtributeFromStartButton();
+        this.activateDisabledAtributeFromStartButton();
     },
 
     stop() {
         clearInterval(this.intervalId);
         this.isActive = false;
 
-        deactivateDisabledAtributeFromStartButton();
+        this.deactivateDisabledAtributeFromStartButton();
     },
 
     changeBodyBackgroundColor() {
