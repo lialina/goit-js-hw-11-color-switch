@@ -21,6 +21,14 @@ const startButton = document.querySelector('button[data-action="start"]');
 const stopButton = document.querySelector('button[data-action="stop"]');
 const bodyElement = document.querySelector('body');
 
+startButton.addEventListener('click', () => {
+    timer.start();
+});
+
+stopButton.addEventListener('click', () => {
+    timer.stop();
+});
+
 const timer = {
     intervalId: null,
     isActive: false,
@@ -45,27 +53,19 @@ const timer = {
 
         deactivateDisabledAtributeFromStartButton();
     },
-};
 
-startButton.addEventListener('click', () => {
-    timer.start();
-});
-
-stopButton.addEventListener('click', () => {
-    timer.stop();
-});
-
-function changeBodyBackgroundColor() {
+    changeBodyBackgroundColor() {
     bodyElement.style.backgroundColor = `${colors[randomIntegerFromInterval(0, colors.length - 1)]}`;
-}
+    },
 
-function activateDisabledAtributeFromStartButton() {
+    activateDisabledAtributeFromStartButton() {
     startButton.disabled = true;
-}
+    },
 
-function deactivateDisabledAtributeFromStartButton() {
+    deactivateDisabledAtributeFromStartButton() {
     startButton.disabled = false;
-}
+    },
+};
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
