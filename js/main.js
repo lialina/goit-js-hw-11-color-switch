@@ -35,11 +35,15 @@ const timer = {
         this.intervalId = setInterval(() => {
             changeBodyBackgroundColor();
         }, 1000);
+
+        activateDisabledAtributeFromStartButton();
     },
 
     stop() {
         clearInterval(this.intervalId);
         this.isActive = false;
+
+        deactivateDisabledAtributeFromStartButton();
     },
 };
 
@@ -53,6 +57,14 @@ stopButton.addEventListener('click', () => {
 
 function changeBodyBackgroundColor() {
     bodyElement.style.backgroundColor = `${colors[randomIntegerFromInterval(0, colors.length - 1)]}`;
+}
+
+function activateDisabledAtributeFromStartButton() {
+    startButton.disabled = true;
+}
+
+function deactivateDisabledAtributeFromStartButton() {
+    startButton.disabled = false;
 }
 
 const randomIntegerFromInterval = (min, max) => {
